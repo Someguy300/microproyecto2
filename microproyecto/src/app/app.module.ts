@@ -17,6 +17,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CharlistComponent } from './pages/charlist/charlist/charlist.component';
 import { ChardetailComponent } from './pages/chardetail/chardetail/chardetail.component';
+import { FilterComponent } from './components/filter/filter/filter.component';
+import { CharfilterComponent } from './pages/charfilter/charfilter/charfilter.component';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import { MisfavComponent } from './pages/misfav/misfav/misfav.component';
 
 
 @NgModule({
@@ -25,19 +37,30 @@ import { ChardetailComponent } from './pages/chardetail/chardetail/chardetail.co
     NavbarComponent,
     CharlistComponent,
     ChardetailComponent,
+    FilterComponent,
+    CharfilterComponent,
+    MisfavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     MatSliderModule,
     LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

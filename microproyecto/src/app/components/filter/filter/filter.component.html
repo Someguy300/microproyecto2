@@ -1,0 +1,83 @@
+<form [formGroup]="filtrosForm">
+    <table class="table table-striped">
+        <thead class="">
+            <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="species"></label>
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+                </td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="alive" formControlName="salive">
+                    <label class="form-check-label">
+                    Alive
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="dead" formControlName="sdead">
+                    <label class="form-check-label">
+                    Dead
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="unknown" formControlName="sunknown">
+                    <label class="form-check-label">
+                    Unknown
+                    </label>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label for="species"></label>
+                    <input type="text" class="form-control" formControlName="especie">
+                </div>
+            </td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="male" formControlName="gmale">
+                    <label class="form-check-label">
+                    Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="female" formControlName="gfemale">
+                    <label class="form-check-label">
+                    Female
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="genderless" formControlName="ggenderless">
+                    <label class="form-check-label">
+                        Genderless
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="unknown" formControlName="gunknown">
+                    <label class="form-check-label">
+                        Unknown
+                    </label>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label for="tipo"></label>
+                    <input type="text" class="form-control" formControlName="tipo">
+                </div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</form> 
+           
+    

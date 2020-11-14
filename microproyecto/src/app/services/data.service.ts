@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry,tap } from 'rxjs/operators';
-import { APIResponse } from '../models/APIResponse/apiresponse';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -11,6 +9,8 @@ import { APIResponse } from '../models/APIResponse/apiresponse';
 export class DataService {
 
   configURL = 'https://rickandmortyapi.com/api/character/';
+  filterString='';
+  auxS=false;
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,12 @@ export class DataService {
   getCharPage(index: number){
     return this.http.get(this.configURL+'?page='+index);
   }
+
+  getOneChar(id:number){
+    return this.http.get(this.configURL+id);
+  }
+
   
   
+        
 }

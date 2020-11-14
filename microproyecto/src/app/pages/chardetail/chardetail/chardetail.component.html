@@ -1,1 +1,34 @@
-<p>chardetail works!</p>
+<div class="container py-5 mt-5" id="top">
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <h1>Detalles de {{ personaje.name }}</h1>
+                <hr>
+                <table class="table table-striped">
+                    <thead class="">
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Locacion</th>
+                        <th scope="col">Especie</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Origen</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Fecha Creacion</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{ personaje.name }}</th>
+                        <td>{{ personaje.location.name }}</td>
+                        <td>{{ personaje.species}}</td>
+                        <td>{{ personaje.gender }}</td>
+                        <td>{{ personaje.origin.name}}</td>
+                        <td><img src="{{ personaje.image }}"></td>
+                        <td>{{ personaje.created }}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

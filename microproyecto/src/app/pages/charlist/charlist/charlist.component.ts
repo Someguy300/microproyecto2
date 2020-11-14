@@ -17,7 +17,7 @@ export class CharlistComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    if(this.index!=0){
+    if(this.index==0 || this.index==null){
       this.loading = true;
       this.dataService.getCharPageOne().subscribe((data: APIResponse)=>{
         console.log(data);
@@ -36,6 +36,7 @@ export class CharlistComponent implements OnInit {
       this.products = data.results;
     }) 
     this.loading = false;
+    
   }
 
   prevPage(){

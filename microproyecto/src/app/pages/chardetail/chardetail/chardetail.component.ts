@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Character } from '../../../models/character/character'
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-chardetail',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChardetailComponent implements OnInit {
 
-  constructor() { }
+  personaje: Character;
+  id: number;
+  private sub: any;
 
-  ngOnInit(): void {
+  constructor(private dataService: DataService,
+    private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id']; 
+    });
+    
+    this.dataService.getOneChar(this.id).subscribe((data: Character)=>{
+      console.log(data);
+      this.personaje = data;
+    }) 
   }
+
+  
+    
+  
+  
 
 }
