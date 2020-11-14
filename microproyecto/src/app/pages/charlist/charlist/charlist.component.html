@@ -1,1 +1,31 @@
-<p>charlist works!</p>
+<div class="container py-5 mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <h1>Lista personajes</h1>
+                <hr>
+                <table class="table table-striped" *ngIf="!loading">
+                    <thead class="">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let product of products">
+                        <th scope="row">{{ product.id }}</th>
+                        <td>{{ product.name }}</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary btn-sm" *ngIf="index>1" (click)="prevPage()">
+                  Pagina Ant.
+                </button>
+                
+                <button type="button" class="btn btn-primary btn-sm" *ngIf="index<20" (click)="nextPage()">
+                  Sig. Pagina
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../services/data.service';
+import { APIResponse } from '../../../models/APIResponse/apiresponse'
+import { Character } from '../../../models/character/character'
 
 @Component({
   selector: 'app-charlist',
@@ -7,9 +10,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharlistComponent implements OnInit {
 
-  constructor() { }
+  products : Array<Character>;
+  loading = false;
+  index = null;
 
-  ngOnInit(): void {
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    if(this.index!=0){
+      this.loading = true;
+      this.dataService.getCharPageOne().subscribe((data: APIResponse)=>{
+        console.log(data);
+        this.products = data.results;
+      }) 
+      this.index = 0;
+      this.loading = false;
+    }
   }
 
+  nextPage(){
+    this.loading = true;
+    this.index= this.index+1;
+    this.dataService.getCharPage(this.index).subscribe((data: APIResponse)=>{
+      console.log(data);
+      this.products = data.results;
+    }) 
+    this.loading = false;
+  }
+
+  prevPage(){
+    this.loading = true;
+    this.index= this.index-1;
+    this.dataService.getCharPage(this.index).subscribe((data: APIResponse)=>{
+      console.log(data);
+      this.products = data.results;
+    }) 
+    this.loading = false;
+  }
+
+  
 }
+  
+
+
