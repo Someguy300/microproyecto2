@@ -15,6 +15,9 @@
         <a class="nav-link" *ngIf="!isAuthenticated" (click)="authWithGoogle()">Login</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" *ngIf="isAuthenticated" routerLink="favoritos" routerLinkActive="active">Favoritos</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" *ngIf="isAuthenticated" (click)="logout()">LogOut</a>
       </li>
     </ul>

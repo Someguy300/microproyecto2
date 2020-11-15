@@ -26,6 +26,11 @@ export class DataService {
     return this.http.get(this.configURL+id);
   }
 
+  getMultChar(id:string){
+    console.log(this.configURL+id)
+    return this.http.get(this.configURL+id);
+  }
+
   
   
         
