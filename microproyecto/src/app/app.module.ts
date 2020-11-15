@@ -27,7 +27,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from 'src/environments/environment';
+import { firebaseConfig } from '../environments/environment';
 import { MisfavComponent } from './pages/misfav/misfav/misfav.component';
 
 
@@ -49,7 +49,7 @@ import { MisfavComponent } from './pages/misfav/misfav/misfav.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     BrowserAnimationsModule,
     MatSliderModule,
     LayoutModule,
