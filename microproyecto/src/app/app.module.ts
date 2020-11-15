@@ -23,12 +23,11 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { firebaseConfig } from '../environments/environment';
+import { environment } from 'src/environments/environment'
 import { MisfavComponent } from './pages/misfav/misfav/misfav.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -46,10 +45,8 @@ import { MisfavComponent } from './pages/misfav/misfav/misfav.component';
     AppRoutingModule,
     HttpClientModule,
     AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     MatSliderModule,
     LayoutModule,
@@ -62,7 +59,7 @@ import { MisfavComponent } from './pages/misfav/misfav/misfav.component';
     MatListModule,
     MatCheckboxModule,
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
